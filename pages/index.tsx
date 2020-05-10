@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import React from 'react'
 
-export default function Home() {
+export const Home = () => {
   return (
     <div className="container">
       <Head>
