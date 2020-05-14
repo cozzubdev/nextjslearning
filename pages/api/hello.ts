@@ -1,6 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-//@ts-ignore
-export default (req, res) => {
+
+export default (
+  req: unknown,
+  res: { statusCode: number; json: (arg0: { name: string }) => void }
+): void => {
   res.statusCode = 200
   res.json({ name: 'John Doe' })
 }

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
-export const Home = () => {
+export const Home = (): ReactElement => {
   return (
     <div className='container'>
       <Head>

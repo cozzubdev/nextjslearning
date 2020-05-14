@@ -3,7 +3,20 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:promise/recommended",
+    "plugin:react-perf/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -13,13 +26,26 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "createDefaultProgram": true
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint",
+    "react-hooks",
+    "import",
+    "promise",
+    "react-perf"
+  ],
   "rules": {
     "prettier/prettier": "error",
-    "import/prefer-default-options": "off",
-    "react/jsx-filename-extention": "off"
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }
