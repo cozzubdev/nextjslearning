@@ -1,6 +1,22 @@
 {
-  "trailingComma": "es5",
+  "prettier.printWidth": 80,
+  "trailingComma": "all",
+  "endOfLine": "lf",
   "tabWidth": 2,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true,
+  "arrowParens": "always",
+  "parser": "babel-ts",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "singleQuote": false,
+        "parser": "json"
+      }
+    }
+  ]
 }
