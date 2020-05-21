@@ -49,6 +49,7 @@
     "react/jsx-props-no-spreading": "warn",
     "@typescript-eslint/no-explicit-any": "error",
     "import/extensions": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }
