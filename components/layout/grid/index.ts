@@ -6,5 +6,5 @@ export const GridRow = styled.div`
 `;
 
 export const GridCol = styled.div<GridRowProps>`
-  width: ${({ size }): string => (size ? `calc(100/${size})` : '100%')};
+  width: ${({ colNum }): string => (colNum ? `calc(100/${colNum})` : '100%')};
 `;

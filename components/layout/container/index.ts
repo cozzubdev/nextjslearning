@@ -3,6 +3,8 @@ import { Media } from 'config/medias';
 
 export const Container = styled.div`
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   height: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
