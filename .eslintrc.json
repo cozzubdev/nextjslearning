@@ -15,7 +15,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
     "plugin:promise/recommended",
-    "plugin:react-perf/recommended"
+    "plugin:react-perf/recommended",
+    "plugin:unicorn/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -39,7 +40,8 @@
     "react-hooks",
     "import",
     "promise",
-    "react-perf"
+    "react-perf",
+    "unicorn"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -50,6 +52,7 @@
     "@typescript-eslint/no-explicit-any": "error",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "unicorn/prevent-abbreviations": "off"
   }
 }
