@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Header } from 'components/header';
-import { Container } from 'next/app';
+import { Container } from './container';
 import { LayoutProps } from './type';
 
 export const Layout = ({ children }: LayoutProps): ReactElement => {
