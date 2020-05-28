@@ -4,9 +4,6 @@ import { NavigationItemWrapper, NavigationLink } from './style';
 import { NavItemProps } from './type';
 
 export const NavItem = ({ item }: NavItemProps): ReactElement => {
-  const handleLogOut = useCallback(() => {
-    localStorage.clear();
-  }, []);
   return (
     <NavigationItemWrapper>
       {item === 'Home' ? (
