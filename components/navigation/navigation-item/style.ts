@@ -11,5 +11,8 @@ export const NavigationItemWrapper = styled.div`
 export const NavigationLink = styled.a`
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: #b8b5f5;
+  :hover {
+    color: #5735f0;
+  }
 `;

@@ -9,6 +9,7 @@ import { EmailField } from 'components/registration/email/type';
 import { PasswordField } from 'components/registration/password/type';
 import { Password } from 'components/registration/password';
 import { RegistrationValues } from './type';
+import { SubmitButton, SubmitButtonWrapper } from './style';
 
 export const Registration = (): ReactElement => {
   const initialValues: RegistrationValues = useMemo(
@@ -74,7 +75,9 @@ export const Registration = (): ReactElement => {
                   handleBlur={handleBlur}
                 />
               </GridRow>
-              <button type='submit'>Submit</button>
+              <SubmitButtonWrapper>
+                <SubmitButton type='submit'>Submit</SubmitButton>
+              </SubmitButtonWrapper>
             </Form>
           );
         }}

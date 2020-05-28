@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-
+import React, { ReactElement, useState, useCallback, ChangeEvent } from 'react';
+import { InterestsSearch } from 'components/interests/interests-search';
 import { InterestList } from 'components/interests';
 import {
   getTwitchChannels,
@@ -13,7 +13,22 @@ export const Interests: NextPage<InterestsProps> = ({
   channels,
   follows,
 }: InterestsProps): ReactElement => {
-  return <InterestList data={channels?.data} />;
+  const [currentChannels, setCurrentChannels] = useState(channels?.data);
+
+  const filterInterests = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setCurrentChannels(
+      channels?.data.filter((channel) =>
+        channel.user_name.includes(e.target.value)
+      )
+    );
+  }, []);
+
+  return (
+    <>
+      <InterestsSearch handleChange={filterInterests} />
+      <InterestList data={currentChannels} />
+    </>
+  );
 };
 
 Interests.getInitialProps = async (): Promise<InterestsProps> => {

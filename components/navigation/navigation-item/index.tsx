@@ -1,14 +1,23 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import Link from 'next/link';
 import { NavigationItemWrapper, NavigationLink } from './style';
 import { NavItemProps } from './type';
 
 export const NavItem = ({ item }: NavItemProps): ReactElement => {
+  const handleLogOut = useCallback(() => {
+    localStorage.clear();
+  }, []);
   return (
     <NavigationItemWrapper>
-      <Link href={`/${item.toLowerCase()}`} as={`/${item.toLowerCase()}`}>
-        <NavigationLink>{item}</NavigationLink>
-      </Link>
+      {item === 'Home' ? (
+        <Link href='/' as='/'>
+          <NavigationLink>{item}</NavigationLink>
+        </Link>
+      ) : (
+        <Link href={`/${item.toLowerCase()}`} as={`/${item.toLowerCase()}`}>
+          <NavigationLink>{item}</NavigationLink>
+        </Link>
+      )}
     </NavigationItemWrapper>
   );
 };

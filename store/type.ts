@@ -3,14 +3,18 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { NextPageContext } from 'next';
 import { LocationChangeAction } from 'connected-next-router/actions';
 import { RouterState } from 'connected-next-router/types';
+import { interestsReducer } from './interests/reducer';
+import { interestsActions } from './interests/action';
 
 export type State = {
   router: RouterState;
+  interests: ReturnType<typeof interestsReducer>;
 };
 
 type RouterActions = LocationChangeAction;
+type ConfigActions = ActionsUnion<typeof interestsActions>;
 
-export type Actions = RouterActions;
+export type Actions = RouterActions | ConfigActions;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: any[]) => any;

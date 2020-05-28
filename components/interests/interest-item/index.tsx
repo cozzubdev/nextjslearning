@@ -1,32 +1,29 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { interestsActions } from 'store/interests/action';
 import { InterestWrapper, InterestTitle, InterestImageWrapper } from './style';
 import { InterestProps } from './type';
 
 export const Interest = ({ data }: InterestProps): ReactElement => {
-  const { thumbnail_url, title } = data;
+  const dispatch = useDispatch();
+  const { thumbnail_url, title, user_name, viewer_count } = data;
 
   const imageWithSizes = thumbnail_url
-    .replace('{width}', '1000')
-    .replace('{height}', '1000');
+    .replace('{width}', '500')
+    .replace('{height}', '500');
+
+  const handleClick = useCallback((): void => {
+    dispatch(interestsActions.setInterest(data));
+  }, []);
 
   return (
-    <InterestWrapper>
+    <InterestWrapper onClick={handleClick}>
       <InterestImageWrapper>
         <img src={imageWithSizes} alt='twitch_thumbnail' />
       </InterestImageWrapper>
       <InterestTitle>{title}</InterestTitle>
+      <InterestTitle>{`Streamed by "${user_name}"`}</InterestTitle>
+      <InterestTitle>{`Viewers: ${viewer_count}`}</InterestTitle>
     </InterestWrapper>
   );
 };
-
-// game_id: string | number;
-// id: string | number;
-// language: string;
-// started_at: Date;
-// tag_ids: [string[]];
-// thumbnail_url: string;
-// title: string;
-// type: string;
-// user_id: string | number;
-// user_name: string;
-// viewer_count: number;

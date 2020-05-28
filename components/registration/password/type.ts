@@ -1,5 +1,6 @@
 import { FormikErrors, FormikTouched } from 'formik';
 import { RegistrationValues } from 'scenes/registration-scene/type';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 
 export interface PasswordFieldProps {
   errors: FormikErrors<RegistrationValues>;
@@ -9,6 +10,17 @@ export interface PasswordFieldProps {
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
+export interface PasswordInputProps
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
+  errors: FormikErrors<RegistrationValues>;
+}
 export enum PasswordField {
   PASSWORD = 'password',
 }
+
+export type PasswordLabelError = {
+  error: string | undefined;
+};

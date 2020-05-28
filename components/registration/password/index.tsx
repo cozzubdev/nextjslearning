@@ -11,11 +11,12 @@ export const Password = ({
   handleChange,
   handleBlur,
 }: PasswordFieldProps): ReactElement => {
-  console.log(touched);
   return (
     <GridCol colNum={2}>
       <InputWrapper>
-        <PasswordInputLabel htmlFor={PasswordField.PASSWORD}>
+        <PasswordInputLabel
+          htmlFor={PasswordField.PASSWORD}
+          error={errors[PasswordField.PASSWORD]}>
           Password *
         </PasswordInputLabel>
         <PasswordInput
@@ -26,6 +27,7 @@ export const Password = ({
           onBlur={handleBlur}
           required
           value={values[PasswordField.PASSWORD]}
+          errors={errors}
         />
         {errors[PasswordField.PASSWORD] && touched[PasswordField.PASSWORD] && (
           <ErrorText>This field is required!</ErrorText>
