@@ -9,8 +9,8 @@ export const Interest = ({ data }: InterestProps): ReactElement => {
   const { thumbnail_url, title, user_name, viewer_count } = data;
 
   const imageWithSizes = thumbnail_url
-    .replace('{width}', '500')
-    .replace('{height}', '500');
+    .replace('{width}', '400')
+    .replace('{height}', '400');
 
   const handleClick = useCallback((): void => {
     dispatch(interestsActions.setInterest(data));
