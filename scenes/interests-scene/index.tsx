@@ -7,11 +7,12 @@ import {
   getMyFollows,
 } from 'services/twitch/twitch.service';
 import { NextPage } from 'next';
+import { setCookie, parseCookies } from 'nookies';
+import { StoreContext } from 'store/type';
 import { InterestsProps } from './type';
 
 export const Interests: NextPage<InterestsProps> = ({
   channels,
-  follows,
 }: InterestsProps): ReactElement => {
   const [currentChannels, setCurrentChannels] = useState(channels?.data);
 
@@ -31,10 +32,17 @@ export const Interests: NextPage<InterestsProps> = ({
   );
 };
 
-Interests.getInitialProps = async (): Promise<InterestsProps> => {
-  const token = await getToken();
-  const follows = await getMyFollows(token.access_token);
-  const channels = await getTwitchChannels(token.access_token, follows.data);
+Interests.getInitialProps = async (
+  ctx: StoreContext
+): Promise<InterestsProps> => {
+  const { twitchToken } = parseCookies(ctx);
+
+  if (!twitchToken) {
+    const { access_token } = await getToken();
+    setCookie(ctx, 'twitchToken', access_token, {});
+  }
+  const follows = await getMyFollows(twitchToken);
+  const channels = await getTwitchChannels(twitchToken, follows.data);
 
   return { channels, follows };
 };

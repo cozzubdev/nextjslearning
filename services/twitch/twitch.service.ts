@@ -6,7 +6,6 @@ import {
   TwitchChannels,
 } from 'scenes/interests-scene/type';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTwitchChannels = async (
   token: string,
   follows: TwitchFollow[]
@@ -14,7 +13,7 @@ export const getTwitchChannels = async (
   const reqInit: RequestInit = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'Client-ID': process.env.TWITCH_CLIENT_ID!,
+      'Client-ID': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID!,
     },
     method: 'GET',
   };
@@ -37,7 +36,7 @@ export const getToken = async (): Promise<TwitchToken> => {
   };
 
   const response = await fetch(
-    `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
+    `https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
     reqInit
   );
 
@@ -50,13 +49,13 @@ export const getMyFollows = async (
   const reqInit: RequestInit = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      'Client-ID': process.env.TWITCH_CLIENT_ID!,
+      'Client-ID': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID!,
     },
     method: 'GET',
   };
 
   const response = await fetch(
-    `https://api.twitch.tv/helix/users/follows?from_id=${process.env.TWITCH_USER_ID}`,
+    `https://api.twitch.tv/helix/users/follows?from_id=${process.env.NEXT_PUBLIC_TWITCH_USER_ID}`,
     reqInit
   );
 
