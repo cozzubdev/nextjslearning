@@ -17,6 +17,4 @@ export const makeStore: MakeStore<State, Actions> = (
   );
 };
 
-export const reduxWrapper = createWrapper(makeStore, {
-  debug: true,
-});
+export const reduxWrapper = createWrapper(makeStore, {});

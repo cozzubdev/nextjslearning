@@ -18,10 +18,6 @@
     "plugin:react-perf/recommended",
     "plugin:unicorn/recommended"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
