@@ -11,6 +11,7 @@
     "connected-next-router": "^2.0.0-alpha.3",
     "formik": "^2.1.4",
     "isomorphic-unfetch": "^3.0.0",
+    "@material-ui/core": "latest",
     "next": "^9.5.2",
     "next-redux-wrapper": "^6.0.0",
     "nookies": "^2.4.0",

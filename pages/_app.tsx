@@ -4,6 +4,9 @@ import { ConnectedRouter } from 'connected-next-router';
 import { reduxWrapper } from 'store';
 import { Store } from 'store/type';
 import { Layout } from 'components/layout';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { theme } from 'global/theme';
 
 interface NextJsLearningProps extends AppProps {
   store?: Store;
@@ -15,9 +18,12 @@ const NextJsLearning = ({
 }: NextJsLearningProps): ReactElement => {
   return (
     <ConnectedRouter>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </ConnectedRouter>
   );
 };

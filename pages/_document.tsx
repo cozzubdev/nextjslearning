@@ -9,6 +9,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GlobalStyles } from 'global/styles';
+import { ServerStyleSheets } from '@material-ui/core/styles';
 
 class NextJsLearningDocument extends Document<
   Readonly<DocumentProps> & Readonly<{ children?: ReactNode }>
@@ -22,15 +23,16 @@ class NextJsLearningDocument extends Document<
   }> {
     const { renderPage } = ctx;
 
-    const sheet = new ServerStyleSheet();
+    const styledSheet = new ServerStyleSheet();
+    const materialSheets = new ServerStyleSheets();
 
     try {
       renderPage({
         enhanceApp: (App) => (props): ReactElement =>
-          sheet.collectStyles(
+          styledSheet.collectStyles(
             <>
               <GlobalStyles />
-              <App {...props} />
+              {materialSheets.collect(<App {...props} />)}
             </>
           ),
       });
@@ -41,13 +43,14 @@ class NextJsLearningDocument extends Document<
         styles: (
           <>
             {initialProps?.styles}
-            {sheet.getStyleElement()}
+            {styledSheet.getStyleElement()}
+            {materialSheets.getStyleElement()}
           </>
         ),
       };
       return returnedProps;
     } finally {
-      sheet.seal();
+      styledSheet.seal();
     }
   }
 

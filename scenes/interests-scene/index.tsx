@@ -42,6 +42,7 @@ Interests.getInitialProps = async (
     setCookie(ctx, 'twitchToken', access_token, {});
   }
   const follows = await getMyFollows(twitchToken);
+
   const channels = await getTwitchChannels(twitchToken, follows.data);
 
   return { channels, follows };
