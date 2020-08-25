@@ -34,7 +34,8 @@ export const getToken = async (): Promise<TwitchToken> => {
   const reqInit: RequestInit = {
     method: 'POST',
   };
-
+  console.log(process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID);
+  console.log(process.env.NEXT_PUBLIC_TWITCH_USER_ID);
   const response = await fetch(
     `https://id.twitch.tv/oauth2/token?client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
     reqInit
