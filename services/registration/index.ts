@@ -9,12 +9,7 @@ export const signUp = async (
     body: JSON.stringify(registrationFields),
   };
 
-  console.log(process.env.CURRENT_HOST);
-
-  const response = await fetch(
-    `${process.env.CURRENT_HOST}/api/signup`,
-    reqInit
-  );
+  const response = await fetch(`/api/signup`, reqInit);
 
   return response.json();
 };
@@ -28,10 +23,7 @@ export const signIn = async (
     body: JSON.stringify(registrationFields),
   };
 
-  const response = await fetch(
-    `${process.env.CURRENT_HOST}/api/signin`,
-    reqInit
-  );
+  const response = await fetch(`/api/signin`, reqInit);
 
   return response.json();
 };
