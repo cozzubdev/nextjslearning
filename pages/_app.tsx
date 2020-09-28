@@ -1,10 +1,11 @@
 import { AppProps, AppInitialProps, AppContext } from 'next/app';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { ConnectedRouter } from 'connected-next-router';
 import { reduxWrapper } from 'store';
 import { Store } from 'store/type';
 import { Layout } from 'components/layout';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider as MaterialThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { theme } from 'global/theme';
 
@@ -16,14 +17,23 @@ const NextJsLearning = ({
   Component,
   pageProps,
 }: NextJsLearningProps): ReactElement => {
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    console.log(jssStyles);
+    if (jssStyles && jssStyles.parentNode)
+      // eslint-disable-next-line unicorn/prefer-node-remove
+      jssStyles.parentNode.removeChild(jssStyles);
+  }, []);
   return (
     <ConnectedRouter>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <StyledThemeProvider theme={theme}>
+        <MaterialThemeProvider theme={theme}>
+          <Layout>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </Layout>
+        </MaterialThemeProvider>
+      </StyledThemeProvider>
     </ConnectedRouter>
   );
 };

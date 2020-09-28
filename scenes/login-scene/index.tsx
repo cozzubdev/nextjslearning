@@ -22,17 +22,14 @@ import { Email } from 'components/registration/fields/email';
 import { Password } from 'components/registration/fields/password';
 import { Copyright } from 'components/registration/copyright';
 
-import { signUp } from 'services/registration';
+import { LoginValues } from './type';
+import { RegistrationFields } from '../registration-scene/type';
 
-import { RegistrationValues, RegistrationFields } from './type';
-
-export const Registration = (): ReactElement => {
+export const Login = (): ReactElement => {
   const classes = useStyles();
 
-  const initialValues: RegistrationValues = useMemo(
+  const initialValues: LoginValues = useMemo(
     () => ({
-      [RegistrationFields.FIRST_NAME]: '',
-      [RegistrationFields.LAST_NAME]: '',
       [RegistrationFields.EMAIL]: '',
       [RegistrationFields.PASSWORD]: '',
     }),
@@ -42,12 +39,6 @@ export const Registration = (): ReactElement => {
   const registrationSchema = useMemo(
     () =>
       object().shape({
-        [RegistrationFields.FIRST_NAME]: string().required(
-          'This field is required!'
-        ),
-        [RegistrationFields.LAST_NAME]: string().required(
-          'This field is required!'
-        ),
         [RegistrationFields.EMAIL]: string().required(
           'This field is required!'
         ),
@@ -59,12 +50,9 @@ export const Registration = (): ReactElement => {
   );
 
   const onSubmit = useCallback(
-    (
-      values: RegistrationValues,
-      helpers: FormikHelpers<RegistrationValues>
-    ) => {
+    (values: LoginValues, helpers: FormikHelpers<LoginValues>) => {
       try {
-        signUp(values);
+        console.log(values);
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {
@@ -89,7 +77,7 @@ export const Registration = (): ReactElement => {
           onSubmit={onSubmit}
           validationSchema={registrationSchema}
           initialValues={initialValues}>
-          {({ values }: FormikProps<RegistrationValues>): ReactElement => {
+          {({ values }: FormikProps<LoginValues>): ReactElement => {
             return (
               <Form className={classes.form} noValidate>
                 <Grid container spacing={2}>

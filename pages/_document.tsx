@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { Fragment, ReactElement, ReactNode } from 'react';
 import Document, {
   DocumentProps,
   Head,
@@ -9,7 +9,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GlobalStyles } from 'global/styles';
-import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
 
 class NextJsLearningDocument extends Document<
   Readonly<DocumentProps> & Readonly<{ children?: ReactNode }>
@@ -17,7 +17,7 @@ class NextJsLearningDocument extends Document<
   static async getInitialProps(
     ctx: DocumentContext
   ): Promise<{
-    styles: ReactElement;
+    styles: ReactElement[];
     html: string;
     head?: (ReactElement | null)[] | undefined;
   }> {
@@ -40,13 +40,13 @@ class NextJsLearningDocument extends Document<
       const initialProps = await Document.getInitialProps(ctx);
       const returnedProps = {
         ...initialProps,
-        styles: (
-          <>
+        styles: [
+          <Fragment key='styles'>
             {initialProps?.styles}
-            {styledSheet.getStyleElement()}
             {materialSheets.getStyleElement()}
-          </>
-        ),
+            {styledSheet.getStyleElement()}
+          </Fragment>,
+        ],
       };
       return returnedProps;
     } finally {
