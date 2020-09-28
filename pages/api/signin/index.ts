@@ -2,13 +2,16 @@ import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { setCookie } from 'nookies';
 import { NextApiRequest, NextApiResponse } from 'next';
-import sqlite from 'sqlite';
+import { open } from 'sqlite';
+import sqlite3 from 'sqlite3';
+
+const driver = sqlite3.Database;
 
 export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  const db = await sqlite.open('./mydb.sqlite');
+  const db = await open({ filename: './mydb.sqlite', driver });
 
   if (req.method === 'POST') {
     const person = await db.get('select * from person where email = ?', [

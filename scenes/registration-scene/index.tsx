@@ -69,7 +69,6 @@ export const Registration = (): ReactElement => {
         helpers.setErrors(error.errors);
       } finally {
         helpers.setSubmitting(false);
-        Router.replace('/about', '/about');
       }
     },
     []

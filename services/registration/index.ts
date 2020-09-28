@@ -9,6 +9,8 @@ export const signUp = async (
     body: JSON.stringify(registrationFields),
   };
 
+  console.log(process.env.CURRENT_HOST);
+
   const response = await fetch(
     `${process.env.CURRENT_HOST}/api/signup`,
     reqInit
