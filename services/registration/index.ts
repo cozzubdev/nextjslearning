@@ -1,8 +1,10 @@
+import { User } from 'models/user';
+import { LoginValues } from 'scenes/login-scene/type';
 import { RegistrationValues } from 'scenes/registration-scene/type';
 
 export const signUp = async (
   registrationFields: RegistrationValues
-): Promise<void> => {
+): Promise<User> => {
   const reqInit: RequestInit = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -14,13 +16,11 @@ export const signUp = async (
   return response.json();
 };
 
-export const signIn = async (
-  registrationFields: RegistrationValues
-): Promise<void> => {
+export const signIn = async (loginFields: LoginValues): Promise<void> => {
   const reqInit: RequestInit = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(registrationFields),
+    body: JSON.stringify(loginFields),
   };
 
   const response = await fetch(`/api/signin`, reqInit);

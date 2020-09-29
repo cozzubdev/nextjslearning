@@ -19,7 +19,7 @@ const NextJsLearning = ({
 }: NextJsLearningProps): ReactElement => {
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
-    console.log(jssStyles);
+
     if (jssStyles && jssStyles.parentNode)
       // eslint-disable-next-line unicorn/prefer-node-remove
       jssStyles.parentNode.removeChild(jssStyles);

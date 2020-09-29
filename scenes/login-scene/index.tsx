@@ -20,6 +20,8 @@ import { FirstName } from 'components/registration/fields/first-name';
 import { LastName } from 'components/registration/fields/last-name';
 import { Copyright } from 'components/registration/copyright';
 
+import { signIn } from 'services/registration';
+
 import { LoginValues } from './type';
 import { RegistrationFields } from '../registration-scene/type';
 
@@ -50,12 +52,12 @@ export const Login = (): ReactElement => {
   const onSubmit = useCallback(
     (values: LoginValues, helpers: FormikHelpers<LoginValues>) => {
       try {
-        console.log(values);
+        signIn(values);
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {
         helpers.setSubmitting(false);
-        Router.replace('/about', '/about');
+        Router.replace('/home', '/home');
       }
     },
     []
@@ -88,17 +90,8 @@ export const Login = (): ReactElement => {
                   variant='contained'
                   color='primary'
                   className={classes.submit}>
-                  Sign Up
+                  Log In
                 </Button>
-                <Grid container justify='flex-end'>
-                  <Grid item>
-                    <NextLink href='/login' as='/login'>
-                      <Link variant='body2'>
-                        Already have an account? Sign in
-                      </Link>
-                    </NextLink>
-                  </Grid>
-                </Grid>
               </Form>
             );
           }}

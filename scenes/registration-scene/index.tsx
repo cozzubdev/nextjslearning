@@ -22,7 +22,7 @@ import { Email } from 'components/registration/fields/email';
 import { Password } from 'components/registration/fields/password';
 import { Copyright } from 'components/registration/copyright';
 
-import { signUp } from 'services/registration';
+import { signIn, signUp } from 'services/registration';
 
 import { RegistrationValues, RegistrationFields } from './type';
 
@@ -59,12 +59,16 @@ export const Registration = (): ReactElement => {
   );
 
   const onSubmit = useCallback(
-    (
+    async (
       values: RegistrationValues,
       helpers: FormikHelpers<RegistrationValues>
     ) => {
       try {
-        signUp(values);
+        const user = await signUp(values);
+
+        const { email } = user;
+        const { password } = values;
+        if (user) await signIn({ email, password });
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {

@@ -1,4 +1,5 @@
 import { compare } from 'bcrypt';
+import cookie from 'cookie';
 import { sign } from 'jsonwebtoken';
 import { setCookie } from 'nookies';
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -23,16 +24,24 @@ export default async (
         const claims = { sub: person.id, myPersonEmail: person.email };
         const jwt = sign(claims, process.env.SECRET!, { expiresIn: '1h' });
 
+        setCookie({ res }, 'authStatus', jwt, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+          sameSite: 'strict',
+          maxAge: 3600,
+          path: '/',
+        });
+
         res.setHeader(
           'Set-Cookie',
-          setCookie(undefined, 'auth', jwt, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV !== 'development',
-            sameSite: 'strict',
-            maxAge: 3600,
+          cookie.serialize('loginStatus', '1', {
+            httpOnly: false,
             path: '/',
-          }).toString()
+            secure: false,
+            maxAge: 30 * 24 * 60 * 60,
+          })
         );
+
         res.json({ message: `Welcome back !` });
       } else {
         res.json({ message: 'Ups, something went wrong!' });
