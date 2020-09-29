@@ -1,6 +1,5 @@
 import React, { ReactElement, useCallback, useMemo } from 'react';
 import Router from 'next/router';
-import NextLink from 'next/link';
 
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { string, object } from 'yup';
@@ -9,16 +8,13 @@ import { useStyles } from 'hooks/useStyles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 import { FirstName } from 'components/registration/fields/first-name';
 import { LastName } from 'components/registration/fields/last-name';
-import { Copyright } from 'components/registration/copyright';
 
 import { signIn } from 'services/registration';
 
@@ -97,9 +93,6 @@ export const Login = (): ReactElement => {
           }}
         </Formik>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </Container>
   );
 };

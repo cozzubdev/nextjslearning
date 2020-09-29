@@ -51,6 +51,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "unicorn/prevent-abbreviations": "off",
     "@typescript-eslint/camelcase": "off",
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    "camelcase": ["warn", { "ignoreDestructuring": true }]
   }
 }

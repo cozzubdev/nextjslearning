@@ -1,17 +1,19 @@
 import React, { ReactElement } from 'react';
-import { InterestsSearchWrapper, InterestsSearchInput } from './style';
+
+import { TextField } from '@material-ui/core';
+
 import { InterestsSearchProps } from './type';
 
 export const InterestsSearch = ({
   handleChange,
 }: InterestsSearchProps): ReactElement => {
   return (
-    <InterestsSearchWrapper>
-      <InterestsSearchInput
-        placeholder='Start search channels...'
-        type='text'
-        onChange={handleChange}
-      />
-    </InterestsSearchWrapper>
+    <TextField
+      fullWidth
+      variant='filled'
+      placeholder='Start search channels...'
+      type='text'
+      onChange={handleChange}
+    />
   );
 };
