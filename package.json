@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "node ./database-test.js && next dev",
     "build": "next build",
-    "start": "next start",
-    "mock-server": "json-server --watch ./db.json -p 4001 -d 1500"
+    "start": "node ./database-test.js && next start"
   },
   "dependencies": {
     "@material-ui/core": "latest",
