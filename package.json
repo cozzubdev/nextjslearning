@@ -9,8 +9,7 @@
     "start": "next start",
     "build": "next build",
     "introspect": "prisma introspect",
-    "generate": "prisma generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma migrate save --experimental && migrate up --experimental"
   },
   "dependencies": {
     "@material-ui/core": "latest",
