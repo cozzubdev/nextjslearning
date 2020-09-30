@@ -10,14 +10,14 @@ import { PrismaClient } from '@prisma/client';
 import { User } from 'models/user';
 
 const prisma = new PrismaClient();
-console.info(prisma);
+
 export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
   const { email, password } = req.body;
 
-  const user: User = await prisma.user.findOne({
+  const user: User | null = await prisma.user.findOne({
     where: { email },
   });
 

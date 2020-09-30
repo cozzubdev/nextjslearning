@@ -18,7 +18,7 @@ export default async (
   if (req.method === 'POST') {
     const { firstName, lastName, email, password } = req.body;
     hash(password, 10, async (err, encryptedPass) => {
-      let user: User;
+      let user: User | null;
       try {
         user = await prisma.user.create({
           data: {
