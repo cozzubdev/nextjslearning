@@ -1,11 +1,7 @@
 {
-    "presets": ["next/babel", ["@babel/preset-react", {
-      "runtime": "automatic"
-    }]],
+    "presets": ["next/babel"],
     "plugins": [
       ["styled-components", { "ssr": true, "displayName": true, "preprocess": false }],
-      ["@babel/plugin-transform-react-jsx", {
-        "runtime": "automatic"
-      }] 
+      
     ]
 }
