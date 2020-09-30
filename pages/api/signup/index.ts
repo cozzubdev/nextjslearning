@@ -52,6 +52,7 @@ export default async (
         })
       );
       res.status(201);
+      res.json({ user });
     } catch (error) {
       res.json({ error });
       return;

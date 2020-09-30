@@ -16,8 +16,11 @@ import Container from '@material-ui/core/Container';
 import { FirstName } from 'components/registration/fields/first-name';
 import { LastName } from 'components/registration/fields/last-name';
 
+import { parseCookies } from 'nookies';
+
 import { signIn } from 'services/registration';
 
+import { StoreContext } from 'store/type';
 import { LoginValues } from './type';
 import { RegistrationFields } from '../registration-scene/type';
 
@@ -95,4 +98,26 @@ export const Login = (): ReactElement => {
       </div>
     </Container>
   );
+};
+
+Login.getInitialProps = async (
+  ctx: StoreContext
+): Promise<Record<string, unknown>> => {
+  const { res } = ctx;
+  const { loginStatus } = parseCookies(ctx);
+
+  if (loginStatus === '1') {
+    if (typeof window === 'undefined' && res) {
+      res.writeHead(302, {
+        Location: `/home`,
+        'Content-Type': 'text/html; charset=utf-8',
+      });
+      res.end();
+
+      return {};
+    }
+    await Router.replace('/home', `/home`);
+  }
+
+  return {};
 };

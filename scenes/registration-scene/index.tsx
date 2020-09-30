@@ -1,5 +1,6 @@
 import { ReactElement, useCallback, useMemo } from 'react';
 import NextLink from 'next/link';
+import Router from 'next/router';
 
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { string, object } from 'yup';
@@ -19,8 +20,11 @@ import { LastName } from 'components/registration/fields/last-name';
 import { Email } from 'components/registration/fields/email';
 import { Password } from 'components/registration/fields/password';
 
-import { signIn, signUp } from 'services/registration';
+import { signUp } from 'services/registration';
 
+import { parseCookies } from 'nookies';
+
+import { StoreContext } from 'store/type';
 import { RegistrationValues, RegistrationFields } from './type';
 
 export const Registration = (): ReactElement => {
@@ -118,4 +122,26 @@ export const Registration = (): ReactElement => {
       </div>
     </Container>
   );
+};
+
+Registration.getInitialProps = async (
+  ctx: StoreContext
+): Promise<Record<string, unknown>> => {
+  const { res } = ctx;
+  const { loginStatus } = parseCookies(ctx);
+
+  if (loginStatus === '1') {
+    if (typeof window === 'undefined' && res) {
+      res.writeHead(302, {
+        Location: `/home`,
+        'Content-Type': 'text/html; charset=utf-8',
+      });
+      res.end();
+
+      return {};
+    }
+    await Router.replace('/home', `/home`);
+  }
+
+  return {};
 };
