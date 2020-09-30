@@ -36,7 +36,7 @@ export default async (
       );
 
       setCookie({ res }, 'token', jwt, {
-        httpOnly: true,
+        httpOnly: false,
         secure: process.env.NODE_ENV !== 'development',
         sameSite: 'strict',
         maxAge: 3600,
