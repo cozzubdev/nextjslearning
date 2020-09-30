@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { compare } from 'bcrypt';
-import { serialize } from 'cookie';
 import { sign } from 'jsonwebtoken';
 import { setCookie } from 'nookies';
 
@@ -21,39 +20,25 @@ export default async (
     where: { email },
   });
 
-  if (req.method === 'POST') {
-    if (user && compare(password, user.password)) {
-      const jwt = sign(
-        { email: user.email, id: user.id, time: new Date() },
-        process.env.JWT_SECRET!,
-        {
-          expiresIn: '6h',
-        }
-      );
+  if (user && compare(password, user.password)) {
+    const jwt = sign(
+      { email: user.email, id: user.id, time: new Date() },
+      process.env.JWT_SECRET!,
+      {
+        expiresIn: '6h',
+      }
+    );
 
-      setCookie({ res }, 'token', jwt, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV !== 'development',
-        sameSite: 'strict',
-        maxAge: 3600,
-        path: '/',
-      });
-
-      res.setHeader(
-        'Set-Cookie',
-        serialize('loginStatus', '1', {
-          httpOnly: false,
-          path: '/',
-          secure: false,
-          maxAge: 3600,
-        })
-      );
-
-      res.json(user);
-    } else {
-      res.json({ error: 'Incorrect username or password' });
-    }
+    setCookie({ res }, 'token', jwt, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      sameSite: 'strict',
+      maxAge: 3600,
+      path: '/',
+    });
+    res.status(200);
+    res.json(user);
   } else {
-    res.status(405).json({ message: 'We only support POST' });
+    res.json({ error: 'Incorrect username or password' });
   }
 };

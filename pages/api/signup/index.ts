@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { setCookie } from 'nookies';
-import { serialize } from 'cookie';
 
 import { PrismaClient } from '@prisma/client';
 
@@ -35,6 +34,7 @@ export default async (
           expiresIn: '6h',
         }
       );
+
       setCookie({ res }, 'token', jwt, {
         httpOnly: true,
         secure: process.env.NODE_ENV !== 'development',
@@ -42,15 +42,7 @@ export default async (
         maxAge: 3600,
         path: '/',
       });
-      res.setHeader(
-        'Set-Cookie',
-        serialize('loginStatus', '1', {
-          httpOnly: false,
-          path: '/',
-          secure: false,
-          maxAge: 3600,
-        })
-      );
+
       res.status(201);
       res.json({ user });
     } catch (error) {

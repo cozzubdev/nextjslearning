@@ -128,9 +128,9 @@ Registration.getInitialProps = async (
   ctx: StoreContext
 ): Promise<Record<string, unknown>> => {
   const { res } = ctx;
-  const { loginStatus } = parseCookies(ctx);
+  const { token } = parseCookies(ctx);
 
-  if (loginStatus === '1') {
+  if (token) {
     if (typeof window === 'undefined' && res) {
       res.writeHead(302, {
         Location: `/`,
