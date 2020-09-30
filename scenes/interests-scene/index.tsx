@@ -14,11 +14,7 @@ import { useStyles } from 'hooks/useStyles';
 import { InterestsSearch } from 'components/interests/interests-search';
 import { InterestList } from 'components/interests';
 
-import {
-  getTwitchChannels,
-  getToken,
-  getMyFollows,
-} from 'services/twitch/twitch.service';
+import { getTwitchChannels, getToken, getMyFollows } from 'services/twitch';
 
 import { InterestsProps } from './type';
 

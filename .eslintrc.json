@@ -52,6 +52,7 @@
     "unicorn/prevent-abbreviations": "off",
     "@typescript-eslint/camelcase": "off",
     "import/no-cycle": "off",
-    "camelcase": ["warn", { "ignoreDestructuring": true }]
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "off"
   }
 }

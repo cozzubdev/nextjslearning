@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  firstName    String
+  lastName    String
+  email       String @unique
+  password    String
+  interests   Interest[]
+}
+
+model Interest {
+  id            Int      @id @default(autoincrement())
+  authorId      Int
+  createdAt     DateTime @default(now())
+  title         String  
+  user_name     String  
+  viewer_count  Int  
+  author        User @relation(fields: [authorId], references:[id])
+  twitchUserID  Int
+}

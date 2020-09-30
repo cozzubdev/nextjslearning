@@ -62,10 +62,6 @@ export const Registration = (): ReactElement => {
     ) => {
       try {
         const user = await signUp(values);
-
-        const { email } = user;
-        const { password } = values;
-        if (user) await signIn({ email, password });
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {

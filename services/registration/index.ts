@@ -24,6 +24,7 @@ export const signIn = async (loginFields: LoginValues): Promise<void> => {
   };
 
   const response = await fetch(`/api/signin`, reqInit);
+  console.log(response);
 
   return response.json();
 };
