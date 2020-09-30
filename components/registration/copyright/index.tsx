@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import NextLink from 'next/link';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';

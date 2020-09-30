@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 
 import { useStyles } from 'hooks/useStyles';

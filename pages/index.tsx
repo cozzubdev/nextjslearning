@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Router from 'next/router';
-import React, { ReactElement, useCallback, useState, ChangeEvent } from 'react';
+import { ReactElement, useCallback, useState, ChangeEvent } from 'react';
 
 import { useInterests } from 'store/interests/select';
 import { TwitchData } from 'components/interests/type';

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Container } from 'components/layout/container';
 import { GridRow } from 'components/layout/grid';
 import { getInfo } from 'services/linked-in/linkedin.service';

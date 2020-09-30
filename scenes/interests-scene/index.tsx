@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useCallback, ChangeEvent } from 'react';
+import { ReactElement, useState, useCallback, ChangeEvent } from 'react';
 import { NextPage } from 'next';
 import { setCookie, parseCookies } from 'nookies';
 

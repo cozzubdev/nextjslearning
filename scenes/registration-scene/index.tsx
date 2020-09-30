@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useMemo } from 'react';
+import { ReactElement, useCallback, useMemo } from 'react';
 import NextLink from 'next/link';
 
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';

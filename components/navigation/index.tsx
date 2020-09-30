@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useMemo } from 'react';
+import { ReactElement, useEffect, useMemo } from 'react';
 import { Container } from 'components/layout/container';
 import { NavigationWrapper } from './style';
 import { NavItem } from './navigation-item';

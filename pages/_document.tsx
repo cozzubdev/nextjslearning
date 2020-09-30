@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement, ReactNode } from 'react';
+import { Fragment, ReactElement, ReactNode } from 'react';
 import Document, {
   DocumentProps,
   Head,

@@ -1,5 +1,5 @@
 import { AppProps, AppInitialProps, AppContext } from 'next/app';
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { ConnectedRouter } from 'connected-next-router';
 import { reduxWrapper } from 'store';
 import { Store } from 'store/type';

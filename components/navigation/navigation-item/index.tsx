@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback } from 'react';
+import { ReactElement, useCallback } from 'react';
 import Link from 'next/link';
 import { NavigationItemWrapper, NavigationLink } from './style';
 import { NavItemProps } from './type';
