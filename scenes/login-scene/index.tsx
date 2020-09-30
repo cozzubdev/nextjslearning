@@ -13,8 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-import { FirstName } from 'components/registration/fields/first-name';
-import { LastName } from 'components/registration/fields/last-name';
+import { Email } from 'components/registration/fields/email';
+import { Password } from 'components/registration/fields/password';
 
 import { parseCookies } from 'nookies';
 
@@ -80,8 +80,8 @@ export const Login = (): ReactElement => {
             return (
               <Form className={classes.form} noValidate>
                 <Grid container spacing={2}>
-                  <FirstName />
-                  <LastName />
+                  <Email />
+                  <Password />
                 </Grid>
                 <Button
                   type='submit'
