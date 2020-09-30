@@ -51,15 +51,12 @@ export default async (
           maxAge: 3600,
         })
       );
+      res.status(201);
     } catch (error) {
       res.json({ error });
       return;
     } finally {
       await prisma.$disconnect;
-      res.writeHead(302, {
-        Location: `/home`,
-        'Content-Type': 'text/html; charset=utf-8',
-      });
     }
   });
 };
