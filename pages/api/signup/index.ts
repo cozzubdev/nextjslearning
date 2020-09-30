@@ -15,25 +15,18 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
-  if (req.method === 'POST') {
-    const { firstName, lastName, email, password } = req.body;
-    hash(password, 10, async (err, encryptedPass) => {
-      let user: User | null;
-      try {
-        user = await prisma.user.create({
-          data: {
-            firstName,
-            lastName,
-            email,
-            password: encryptedPass,
-          },
-        });
-      } catch (error) {
-        console.error(error);
-        console.log(error);
-        res.json({ error });
-        return;
-      }
+  const { firstName, lastName, email, password } = req.body;
+  hash(password, 10, async (err, encryptedPass) => {
+    let user: User | null;
+    try {
+      user = await prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          email,
+          password: encryptedPass,
+        },
+      });
 
       const jwt = sign(
         { email: user.email, id: user.id, time: new Date() },
@@ -58,8 +51,15 @@ export default async (
           maxAge: 3600,
         })
       );
-    });
-  } else {
-    res.status(405).json({ message: 'We only support POST' });
-  }
+    } catch (error) {
+      res.json({ error });
+      return;
+    } finally {
+      await prisma.$disconnect;
+      res.writeHead(302, {
+        Location: `/home`,
+        'Content-Type': 'text/html; charset=utf-8',
+      });
+    }
+  });
 };
