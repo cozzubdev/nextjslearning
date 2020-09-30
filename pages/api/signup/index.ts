@@ -31,7 +31,7 @@ export default async (
       } catch (error) {
         console.error(error);
         console.log(error);
-        res.json({ error: 'A user with that username already exists 😮' });
+        res.json({ error });
         return;
       }
 
