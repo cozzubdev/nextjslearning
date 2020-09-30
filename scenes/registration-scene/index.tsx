@@ -133,14 +133,14 @@ Registration.getInitialProps = async (
   if (loginStatus === '1') {
     if (typeof window === 'undefined' && res) {
       res.writeHead(302, {
-        Location: `/home`,
+        Location: `/`,
         'Content-Type': 'text/html; charset=utf-8',
       });
       res.end();
 
       return {};
     }
-    await Router.replace('/home', `/home`);
+    await Router.replace('/', `/`);
   }
 
   return {};
