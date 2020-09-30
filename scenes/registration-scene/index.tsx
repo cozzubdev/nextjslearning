@@ -1,11 +1,13 @@
-import { ReactElement, useCallback, useMemo } from 'react';
+import { ReactElement, useCallback, useEffect, useMemo } from 'react';
 import NextLink from 'next/link';
 import Router from 'next/router';
 
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { string, object } from 'yup';
 
+import { useLoginsStatus } from 'store/app/select';
 import { useStyles } from 'hooks/useStyles';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -29,6 +31,7 @@ import { RegistrationValues, RegistrationFields } from './type';
 
 export const Registration = (): ReactElement => {
   const classes = useStyles();
+  const loginStatus = useLoginsStatus();
 
   const initialValues: RegistrationValues = useMemo(
     () => ({
@@ -74,6 +77,10 @@ export const Registration = (): ReactElement => {
     },
     []
   );
+
+  useEffect(() => {
+    if (loginStatus) Router.push('/', '/');
+  }, [loginStatus]);
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -129,7 +136,7 @@ Registration.getInitialProps = async (
 ): Promise<Record<string, unknown>> => {
   const { res } = ctx;
   const { token } = parseCookies(ctx);
-
+  console.info(token);
   if (token) {
     if (typeof window === 'undefined' && res) {
       res.writeHead(302, {

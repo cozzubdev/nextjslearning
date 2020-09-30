@@ -1,10 +1,12 @@
-import { ReactElement, useCallback, useMemo } from 'react';
+import { ReactElement, useCallback, useEffect, useMemo } from 'react';
 import Router from 'next/router';
 
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { string, object } from 'yup';
 
 import { useStyles } from 'hooks/useStyles';
+import { useLoginsStatus } from 'store/app/select';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +28,7 @@ import { RegistrationFields } from '../registration-scene/type';
 
 export const Login = (): ReactElement => {
   const classes = useStyles();
+  const loginStatus = useLoginsStatus();
 
   const initialValues: LoginValues = useMemo(
     () => ({
@@ -61,6 +64,10 @@ export const Login = (): ReactElement => {
     },
     []
   );
+
+  useEffect(() => {
+    if (loginStatus) Router.push('/', '/');
+  }, [loginStatus]);
 
   return (
     <Container component='main' maxWidth='xs'>
