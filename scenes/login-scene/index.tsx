@@ -52,14 +52,14 @@ export const Login = (): ReactElement => {
   );
 
   const onSubmit = useCallback(
-    (values: LoginValues, helpers: FormikHelpers<LoginValues>) => {
+    async (values: LoginValues, helpers: FormikHelpers<LoginValues>) => {
       try {
-        signIn(values);
+        await signIn(values);
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {
         helpers.setSubmitting(false);
-        Router.replace('/home', '/home');
+        Router.push('/', '/');
       }
     },
     []

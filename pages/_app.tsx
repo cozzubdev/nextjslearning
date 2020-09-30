@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { parseCookies } from 'nookies';
 
 interface NextJsLearningProps extends AppProps {
-  store?: Store;
+  store: Store;
 }
 
 const NextJsLearning = ({

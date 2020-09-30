@@ -3,10 +3,7 @@ export const getInfo = async (): Promise<unknown> => {
     method: 'GET',
   };
 
-  const response = await fetch(
-    `${process.env.CURRENT_HOST}/api/profile`,
-    reqInit
-  );
+  const response = await fetch(`/api/profile`, reqInit);
 
   return response.json();
 };
