@@ -47,9 +47,9 @@ export default Index;
 Index.getInitialProps = async (ctx: StoreContext) => {
   const { res, req } = ctx;
 
-  const { loginStatus } = parseCookies(ctx);
+  const { token } = parseCookies(ctx);
 
-  if (Number(loginStatus) === 0) {
+  if (!token) {
     if (res && typeof window === 'undefined') {
       res.writeHead(302, {
         Location: `/registration`,
