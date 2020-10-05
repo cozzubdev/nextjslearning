@@ -13,7 +13,7 @@ import { parseCookies } from 'nookies';
 import { StoreContext } from 'store/type';
 
 const Index = (): ReactElement => {
-  const { token } = parseCookies(ctx);
+  const { token } = parseCookies();
   if (!token) Router.push(`/registration`, `/registration`);
 
   const channels = useInterests() || [];
