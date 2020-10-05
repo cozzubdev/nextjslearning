@@ -13,7 +13,8 @@ import { parseCookies } from 'nookies';
 import { StoreContext } from 'store/type';
 
 const Index = (): ReactElement => {
-  if (!parseCookies()) Router.push(`/registration`, `/registration`);
+  const { token } = parseCookies(ctx);
+  if (!token) Router.push(`/registration`, `/registration`);
 
   const channels = useInterests() || [];
   const [currentChannels, setCurrentChannels] = useState<TwitchData[]>(
