@@ -19,7 +19,7 @@ export const getTwitchChannels = async (
   };
 
   const userId = follows
-    .map((follow) => follow.to_id.toString())
+    ?.map((follow) => follow.to_id.toString())
     .join('&user_id=');
 
   const response = await fetch(

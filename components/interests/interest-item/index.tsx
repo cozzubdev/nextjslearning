@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 
 import { useStyles } from 'hooks/useStyles';
 import { useDispatch } from 'react-redux';
+import { useInterests } from 'store/interests/select';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -26,11 +27,19 @@ const TwitchEmbedPlayer = dynamic<TwitchEmbedProps>(
 export const Interest = ({ data }: InterestProps): ReactElement => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const selectedInterests = useInterests();
+
   const { title, user_name, viewer_count, id } = data;
+
+  const selectedInterest = selectedInterests.find(
+    (interest) => interest.id === id
+  );
 
   const handleClick = useCallback((): void => {
     dispatch(interestsActions.setInterest(data));
   }, []);
+
+  const buttonText = selectedInterest ? 'Favorite' : 'Add to favorite';
 
   return (
     <Grid item key={id} xs={12} sm={6} md={4}>
@@ -58,10 +67,7 @@ export const Interest = ({ data }: InterestProps): ReactElement => {
         </CardContent>
         <CardActions>
           <Button size='small' color='primary' onClick={handleClick}>
-            Add to favorite
-          </Button>
-          <Button size='small' color='primary'>
-            Edit
+            {buttonText}
           </Button>
         </CardActions>
       </Card>

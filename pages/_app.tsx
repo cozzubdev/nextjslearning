@@ -21,6 +21,7 @@ const NextJsLearning = ({
   pageProps,
 }: NextJsLearningProps): ReactElement => {
   const dispatch = useDispatch();
+  const { token } = parseCookies();
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -31,11 +32,12 @@ const NextJsLearning = ({
   }, []);
 
   useEffect(() => {
-    const { token } = parseCookies();
     if (token) {
       dispatch(appActions.setLogin(true));
+      return;
     }
-  }, [dispatch]);
+    dispatch(appActions.setLogin(false));
+  }, [dispatch, token]);
 
   return (
     <ConnectedRouter>

@@ -1,3 +1,3 @@
 export interface NavItemProps {
-  item: string;
+  label: string;
 }

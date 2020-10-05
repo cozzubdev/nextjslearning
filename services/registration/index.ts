@@ -24,7 +24,17 @@ export const signIn = async (loginFields: LoginValues): Promise<void> => {
   };
 
   const response = await fetch(`/api/signin`, reqInit);
-  console.log(response);
+
+  return response.json();
+};
+
+export const logOut = async (): Promise<void> => {
+  const reqInit: RequestInit = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  const response = await fetch(`/api/logout`, reqInit);
 
   return response.json();
 };

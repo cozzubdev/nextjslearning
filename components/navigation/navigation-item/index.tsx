@@ -1,20 +1,26 @@
 import { ReactElement, useCallback } from 'react';
 import Link from 'next/link';
-import { NavigationItemWrapper, NavigationLink } from './style';
+
+import Tab from '@material-ui/core/Tab';
+
+import { logOut } from 'services/registration';
+
 import { NavItemProps } from './type';
 
-export const NavItem = ({ item }: NavItemProps): ReactElement => {
-  return (
-    <NavigationItemWrapper>
-      {item === 'Home' ? (
-        <Link href='/' as='/'>
-          <NavigationLink>{item}</NavigationLink>
-        </Link>
-      ) : (
-        <Link href={`/${item.toLowerCase()}`} as={`/${item.toLowerCase()}`}>
-          <NavigationLink>{item}</NavigationLink>
-        </Link>
-      )}
-    </NavigationItemWrapper>
+export const NavItem = ({ label }: NavItemProps): ReactElement => {
+  const logoutHandler = useCallback(async () => {
+    await logOut();
+  }, []);
+
+  if (label === 'Logout') return <Tab label={label} onClick={logoutHandler} />;
+
+  return label === 'Home' ? (
+    <Link href='/' as='/'>
+      <Tab label={label} />
+    </Link>
+  ) : (
+    <Link href={`/${label.toLowerCase()}`} as={`/${label.toLowerCase()}`}>
+      <Tab label={label} />
+    </Link>
   );
 };

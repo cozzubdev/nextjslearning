@@ -1,6 +1,9 @@
+import { ReactElement, useCallback, useState, ChangeEvent } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { ReactElement, useCallback, useState, ChangeEvent } from 'react';
+
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 import { useInterests } from 'store/interests/select';
 import { TwitchData } from 'components/interests/type';
@@ -28,10 +31,12 @@ const Index = (): ReactElement => {
         <meta name='robots' content='noindex, nofollow' />
       </Head>
       <main>
-        <>
-          <InterestsSearch handleChange={filterInterests} />
+        <Container>
+          <Grid xs={12} sm={6} md={6}>
+            <InterestsSearch handleChange={filterInterests} />
+          </Grid>
           <InterestList data={currentChannels} />
-        </>
+        </Container>
       </main>
     </>
   );
