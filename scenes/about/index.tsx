@@ -33,7 +33,7 @@ export const AboutPage = (): ReactElement => {
 
 AboutPage.getInitialProps = async (ctx: StoreContext): Promise<AboutProps> => {
   const { req } = ctx;
-  const profileInfo = await getInfo(req?.headers.host);
+  const profileInfo = await getInfo();
 
   return { profileInfo };
 };
