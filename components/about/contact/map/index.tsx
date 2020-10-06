@@ -11,7 +11,7 @@ import { useMapStyles } from 'hooks/useStyles';
 
 const defaultCenter = { lat: 50.0851, lng: 36.3444 };
 const googleMapKey = {
-  key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+  key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string,
 };
 
 export const MapContainer = (): ReactElement => {
