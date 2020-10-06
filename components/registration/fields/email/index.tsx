@@ -4,7 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import { Field, FieldProps } from 'formik';
 import { EmailFieldProps } from './type';
 
-export const Email = ({ variant }: EmailFieldProps): ReactElement => {
+export const Email = ({
+  variant = 'standard',
+}: EmailFieldProps): ReactElement => {
   return (
     <Grid item xs={12}>
       <Field name='email'>

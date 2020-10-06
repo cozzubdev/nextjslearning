@@ -1,3 +1,3 @@
 export interface EmailFieldProps {
-  variant?: string;
+  variant?: 'standard' | 'filled' | 'outlined' | undefined;
 }
