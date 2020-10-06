@@ -53,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
 
 export const useContactFormStyles = makeStyles((theme) => ({
   container: {
-    margin: 0,
+    margin: theme.spacing(0),
     padding: theme.spacing('15px', '30px'),
     flexGrow: 1,
   },
@@ -73,21 +73,18 @@ export const useMapStyles = makeStyles((theme) => ({
     height: '100%',
 
     [theme.breakpoints.down('md')]: {
-      marginTop: 20,
+      marginTop: theme.spacing(20),
     },
   },
   contactContainer: {
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 15,
-    paddingBottom: 15,
+    padding: theme.spacing('15px', '30px'),
   },
   gridContainer: {
     height: '100%',
   },
   mapContainer: {
-    margin: 0,
-    padding: 0,
+    margin: theme.spacing(0),
+    padding: theme.spacing(0),
     flex: 1,
     width: '100%',
     height: '100%',
@@ -97,15 +94,12 @@ export const useMapStyles = makeStyles((theme) => ({
 
 export const useContactInfoStyles = makeStyles((theme) => ({
   container: {
-    margin: 30,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 15,
-    paddingBottom: 15,
+    margin: theme.spacing(30),
+    padding: theme.spacing('15px', '30px'),
     flexGrow: 1,
   },
   profileListItem: {
-    color: '#333333',
+    color: '#000000',
     fontSize: 12,
     fontWeight: 700,
     textTransform: 'uppercase',
@@ -114,7 +108,7 @@ export const useContactInfoStyles = makeStyles((theme) => ({
     padding: 0,
   },
   profileListItemValue: {
-    color: '#9da0a7',
+    color: '#000000',
     fontSize: 15,
     textAlign: 'left',
     marginTop: -3,
@@ -127,14 +121,12 @@ export const useContactInfoStyles = makeStyles((theme) => ({
 
 export const useAboutstyles = makeStyles((theme) => ({
   container: {
-    marginLeft: '20px',
-    marginRight: '20px',
+    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(20),
   },
   content: {
     zIndex: 2,
     position: 'relative',
-    paddingRight: 10,
-    paddingLeft: 20,
   },
   padding0: {
     padding: '0 !important',
@@ -143,13 +135,13 @@ export const useAboutstyles = makeStyles((theme) => ({
 
 export const useContactStyles = makeStyles((theme) => ({
   container: {
-    margin: 0,
-    padding: 0,
+    margin: theme.spacing(0),
+    padding: theme.spacing(0),
   },
   itemContainer: {
-    padding: 10,
+    padding: theme.spacing(1),
     [theme.breakpoints.down('md')]: {
-      padding: 0,
+      padding: theme.spacing(0),
     },
   },
 }));

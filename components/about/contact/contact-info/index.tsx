@@ -7,8 +7,8 @@ import { useContactInfoStyles } from 'hooks/useStyles';
 export const ContactInfo = (): ReactElement => {
   const classes = useContactInfoStyles();
   return (
-    <Grid container item spacing={10} direction='column'>
-      <Grid container item direction='row' justify='space-evenly' spacing={9}>
+    <Grid container item spacing={1} direction='column'>
+      <Grid container item direction='row' justify='space-evenly' spacing={3}>
         <Grid className={classes.profileListItem} item xs={12} md={3}>
           Address:
         </Grid>
@@ -16,7 +16,7 @@ export const ContactInfo = (): ReactElement => {
           Kharkiv, Ukraine
         </Grid>
       </Grid>
-      <Grid container item direction='row' justify='center' spacing={10}>
+      <Grid container item direction='row' justify='center' spacing={3}>
         <Grid className={classes.profileListItem} item xs={12} md={3}>
           Email:
         </Grid>
@@ -28,7 +28,7 @@ export const ContactInfo = (): ReactElement => {
           </a>
         </Grid>
       </Grid>
-      <Grid container item justify='center' direction='row' spacing={10}>
+      <Grid container item justify='center' direction='row' spacing={3}>
         <Grid className={classes.profileListItem} item xs={12} md={3}>
           Phone:
         </Grid>

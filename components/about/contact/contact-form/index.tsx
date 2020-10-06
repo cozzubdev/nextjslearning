@@ -70,7 +70,7 @@ export const ContactForm = (): ReactElement => {
         return (
           <Paper className={classes.container}>
             <Form>
-              <Grid container direction='column' spacing={0} justify='center'>
+              <Grid container direction='column' spacing={1} justify='center'>
                 <h2 className={classes.heading}>Feel free to contact me</h2>
                 <Name />
                 <Email />

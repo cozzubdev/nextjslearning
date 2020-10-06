@@ -15,7 +15,7 @@ export const Contact = (): ReactElement => {
       direction='column'
       container
       className={classes.container}
-      spacing={0}>
+      spacing={9}>
       <h2>Contact Me</h2>
       <Grid
         container
