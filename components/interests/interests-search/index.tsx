@@ -6,6 +6,7 @@ import { InterestsSearchProps } from './type';
 
 export const InterestsSearch = ({
   handleChange,
+  inputRef,
 }: InterestsSearchProps): ReactElement => {
   return (
     <TextField
@@ -14,6 +15,7 @@ export const InterestsSearch = ({
       placeholder='Start search channels...'
       type='text'
       onChange={handleChange}
+      inputRef={inputRef}
     />
   );
 };

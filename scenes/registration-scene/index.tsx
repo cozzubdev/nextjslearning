@@ -103,7 +103,7 @@ export const Registration = (): ReactElement => {
                 <Grid container spacing={2}>
                   <FirstName />
                   <LastName />
-                  <Email />
+                  <Email variant='outlined' />
                   <Password />
                 </Grid>
                 <Button
@@ -137,7 +137,7 @@ Registration.getInitialProps = async (
 ): Promise<Record<string, unknown>> => {
   const { res } = ctx;
   const { token } = parseCookies(ctx);
-  console.info(token);
+
   if (token) {
     if (typeof window === 'undefined' && res) {
       res.writeHead(302, {

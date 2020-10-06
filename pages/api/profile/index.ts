@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default (req: NextApiRequest, res: NextApiResponse): void => {
-  res.statusCode = 200;
+  res.status(200);
   res.json({
-    $schema: 'https://json.schemastore.org/resume',
     basics: {
       name: 'Mykola Kozubov',
       birthdate: '18.12.1996',

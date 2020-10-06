@@ -1,4 +1,10 @@
-import { ReactElement, useState, useCallback, ChangeEvent } from 'react';
+import {
+  ReactElement,
+  useState,
+  useCallback,
+  ChangeEvent,
+  useRef,
+} from 'react';
 import { NextPage } from 'next';
 import { setCookie, parseCookies } from 'nookies';
 
@@ -23,12 +29,18 @@ export const Interests: NextPage<InterestsProps> = ({
 }: InterestsProps): ReactElement => {
   const [currentChannels, setCurrentChannels] = useState(channels?.data);
 
+  const input = useRef<HTMLInputElement>();
+
   const filterInterests = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setCurrentChannels(
-      channels?.data.filter((channel) =>
+      channels?.data?.filter((channel) =>
         channel.user_name.includes(e.target.value)
       )
     );
+  }, []);
+
+  const handleButtonSearch = useCallback(() => {
+    input?.current?.focus();
   }, []);
 
   const classes = useStyles();
@@ -57,8 +69,11 @@ export const Interests: NextPage<InterestsProps> = ({
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify='center'>
               <Grid item>
-                <Button variant='contained' color='primary'>
-                  Main call to action
+                <Button
+                  variant='contained'
+                  color='primary'
+                  onClick={handleButtonSearch}>
+                  Start search interests...
                 </Button>
               </Grid>
               <Grid item>
@@ -71,7 +86,7 @@ export const Interests: NextPage<InterestsProps> = ({
         </Container>
       </div>
 
-      <InterestsSearch handleChange={filterInterests} />
+      <InterestsSearch handleChange={filterInterests} inputRef={input} />
       <InterestList data={currentChannels} />
     </>
   );
