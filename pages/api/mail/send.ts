@@ -20,18 +20,15 @@ export default async (
 
   const mailOptions = {
     from: email,
-    to: process.env.GMAIL_PASSWORD,
+    to: process.env.GMAIL_EMAIL,
     subject,
     text: message,
   };
 
-  const response = transporter.sendMail(mailOptions, (err, info) => {
+  transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log('Error occurs');
-      return err;
+      console.log(err);
     }
-    return info.response;
+    return console.log('Email sent!!!');
   });
-
-  res.send(response);
 };

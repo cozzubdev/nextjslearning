@@ -28,6 +28,7 @@ export const ContactForm = (): ReactElement => {
     ) => {
       try {
         const response = await sendMail(values);
+        console.log(response);
       } catch (error) {
         helpers.setErrors(error.errors);
       } finally {
@@ -70,7 +71,7 @@ export const ContactForm = (): ReactElement => {
         return (
           <Paper className={classes.container}>
             <Form>
-              <Grid container direction='column' spacing={1} justify='center'>
+              <Grid container direction='column' spacing={2} justify='center'>
                 <h2 className={classes.heading}>Feel free to contact me</h2>
                 <Name />
                 <Email />
