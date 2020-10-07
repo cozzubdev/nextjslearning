@@ -1,6 +1,7 @@
 export interface Project {
   name: string;
   url: string;
+  image: string;
 }
 export interface Language {
   language: string;

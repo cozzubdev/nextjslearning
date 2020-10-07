@@ -6,6 +6,7 @@ import { Contact } from 'components/about/contact';
 import { Profile } from 'components/about/profile';
 import { Skills } from 'components/about/skills';
 import { Experience } from 'components/about/experience';
+import { Projects } from 'components/about/projects';
 
 import { getInfo } from 'services/linked-in';
 
@@ -17,7 +18,7 @@ import { AboutProps } from './type';
 export const AboutPage = ({ profile }: AboutProps): ReactElement => {
   const classes = useAboutstyles();
 
-  const { basics, skills, work } = profile;
+  const { basics, skills, work, projects } = profile;
 
   return (
     <Grid container justify='center' className={classes.content}>
@@ -33,6 +34,7 @@ export const AboutPage = ({ profile }: AboutProps): ReactElement => {
         lg={12}>
         <Profile basics={basics} />
         <Experience experience={work} />
+        <Projects projects={projects} />
         <Skills skills={skills} />
         <Contact basics={basics} />
       </Grid>

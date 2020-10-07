@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { Media } from 'config/medias';
 
 import Grid from '@material-ui/core/Grid';
-import { Media } from 'config/medias';
 
 export const Heading = styled.h2`
   display: block;
@@ -9,9 +9,10 @@ export const Heading = styled.h2`
 `;
 
 export const WorkContainer = styled(Grid)`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-
-  @media ${Media.sm} {
-    width: auto;
+  @media ${Media.md} {
+    flex-direction: row;
   }
 `;

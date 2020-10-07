@@ -6,6 +6,8 @@ import {
   useRef,
 } from 'react';
 import { NextPage } from 'next';
+import Link from 'next/link';
+
 import { setCookie, parseCookies } from 'nookies';
 
 import { StoreContext } from 'store/type';
@@ -62,9 +64,8 @@ export const Interests: NextPage<InterestsProps> = ({
             align='center'
             color='textSecondary'
             paragraph>
-            Something short and leading about the collection below—its contents,
-            the creator, etc. Make it short and sweet, but not too short so
-            folks don&apos;t simply skip over it entirely.
+            This is my collection of favorite channels on twitch. Feel free to
+            browse through them and find, maybe, you will find what you like.
           </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify='center'>
@@ -73,13 +74,15 @@ export const Interests: NextPage<InterestsProps> = ({
                   variant='contained'
                   color='primary'
                   onClick={handleButtonSearch}>
-                  Start search interests...
+                  Start search interests
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant='outlined' color='primary'>
-                  Secondary action
-                </Button>
+                <Link href='/about' as='/about'>
+                  <Button variant='outlined' color='primary'>
+                    About me
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </div>

@@ -5,8 +5,13 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 export const Container = styled(Grid)`
-  padding: 0;
+  flex-basis: 100%;
+  padding: 8px;
   margin: 0;
+
+  @media ${Media.md} {
+    flex-basis: 33%;
+  }
 `;
 
 export const WorkItemImage = styled.img`
@@ -41,7 +46,6 @@ export const WorkItemBox = styled(Paper)`
   }
 
   @media ${Media.md} {
-    width: auto;
     margin: 0;
     margin-bottom: 30px;
   }
@@ -75,5 +79,7 @@ export const WorkItemTitle = styled.h2`
 `;
 
 export const WorkLink = styled.a`
+  display: inline-flex;
+  width: 100%;
   text-decoration: none;
 `;

@@ -94,10 +94,14 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
       {
         name: 'Pfister E-com',
         url: 'https://www.pfister.ch',
+        image:
+          'https://www.bsi-software.com/fileadmin/daten/Kunden/Pfister/logo_pfister.png',
       },
       {
         name: 'Nextjslearning',
         url: 'https://www.pfister.ch',
+        image:
+          'https://soshace-12d3e.kxcdn.com/wp-content/uploads/2019/10/Getting-Started-with-NextJS.jpg',
       },
     ],
   });

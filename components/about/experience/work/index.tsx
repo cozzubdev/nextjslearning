@@ -14,7 +14,7 @@ import { WorkProps } from './type';
 export const Work = ({ work }: WorkProps): ReactElement => {
   const { url, image, summary, position, endDate, startDate } = work;
   return (
-    <Container justify='center' direction='column' item container spacing={0}>
+    <Container item container spacing={0} justify='center' direction='row'>
       <WorkLink href={url} target='_blank' rel='noreferrer'>
         <WorkItemBox>
           <ImageContainer>
