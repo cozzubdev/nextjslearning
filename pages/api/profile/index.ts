@@ -9,14 +9,14 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
       label: 'Front-End developer at NearShorePartner.ch',
       image: 'assets/avatar.jpg',
       email: 'cozzub@gmail.com',
-      phone: '+380996672171',
+      phone: 380996672171,
       url: 'www.linkedin.com/in/mykola-kozubov',
       location: {
         address: 'Ukraine',
-        postalCode: '62441',
+        postalCode: 62441,
         city: 'Tsyrkuny',
         countryCode: 'UA',
-        region: '',
+        region: 'Kharkiv',
       },
     },
     work: [

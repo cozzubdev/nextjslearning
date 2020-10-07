@@ -6,15 +6,17 @@ import { Contact } from 'components/about/contact';
 import { Profile } from 'components/about/profile';
 
 import { getInfo } from 'services/linked-in';
-import { StoreContext } from 'store/type';
+
 import { useAboutstyles } from 'hooks/useStyles';
 
-export interface AboutProps {
-  profileInfo: unknown;
-}
+import { StoreContext } from 'store/type';
+import { AboutProps } from './type';
 
-export const AboutPage = (): ReactElement => {
+export const AboutPage = ({ profile }: AboutProps): ReactElement => {
   const classes = useAboutstyles();
+
+  const { basics } = profile;
+
   return (
     <Grid container justify='center' className={classes.content}>
       <Grid
@@ -27,8 +29,8 @@ export const AboutPage = (): ReactElement => {
         wrap='nowrap'
         className={classes.padding0}
         lg={12}>
-        <Profile />
-        <Contact />
+        <Profile basics={basics} />
+        <Contact basics={basics} />
       </Grid>
     </Grid>
   );
@@ -36,7 +38,7 @@ export const AboutPage = (): ReactElement => {
 
 AboutPage.getInitialProps = async (ctx: StoreContext): Promise<AboutProps> => {
   const { req } = ctx;
-  const profileInfo = await getInfo();
+  const profile = await getInfo();
 
-  return { profileInfo };
+  return { profile };
 };

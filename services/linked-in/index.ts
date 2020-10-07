@@ -1,4 +1,6 @@
-export const getInfo = async (): Promise<unknown> => {
+import { Profile } from 'models/profile';
+
+export const getInfo = async (): Promise<Profile> => {
   const reqInit: RequestInit = {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },

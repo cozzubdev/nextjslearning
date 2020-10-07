@@ -18,13 +18,16 @@ import {
   ProfileSocial,
 } from './style';
 
-export const Profile = (): ReactElement => {
+import { ProfileProps } from './type';
+
+export const Profile = ({ basics }: ProfileProps): ReactElement => {
+  const { image, name, label } = basics;
   return (
     <Container>
       <Grid item direction='column' spacing={0} container>
         <StyledProfile item container spacing={0}>
           <Grid item lg={5} xs={12}>
-            <ProfilePhoto src='assets/avatar.jpg' alt='Durachok' />
+            <ProfilePhoto src={image} alt='Durachok' />
           </Grid>
           <Grid item xs={1} />
           <Grid item lg={6} xs={12} container spacing={0} direction='column'>
@@ -33,11 +36,11 @@ export const Profile = (): ReactElement => {
                 <Bubble content='Hello' />
               </div>
               <ProfileTitle>
-                <ProfileTitleStart>I&apos;m</ProfileTitleStart> Kozubov Mykola
+                <ProfileTitleStart>I&apos;m</ProfileTitleStart> {name}
               </ProfileTitle>
-              <ProfilePosition>Front-End Developer</ProfilePosition>
+              <ProfilePosition>{label}</ProfilePosition>
             </ProfileInfo>
-            <ContactInfo />
+            <ContactInfo basics={basics} />
           </Grid>
         </StyledProfile>
         <ProfileSocial item container spacing={0}>

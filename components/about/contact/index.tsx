@@ -7,7 +7,9 @@ import { useContactStyles } from 'hooks/useStyles';
 import { ContactForm } from './contact-form';
 import { Map } from './map';
 
-export const Contact = (): ReactElement => {
+import { ContactProps } from './type';
+
+export const Contact = ({ basics }: ContactProps): ReactElement => {
   const classes = useContactStyles();
   return (
     <Grid
@@ -27,7 +29,7 @@ export const Contact = (): ReactElement => {
           <ContactForm />
         </Grid>
         <Grid item lg={6} xs={12} className={classes.itemContainer}>
-          <Map />
+          <Map basics={basics} />
         </Grid>
       </Grid>
     </Grid>

@@ -8,7 +8,11 @@ import {
   ProfileValueAItemValue,
 } from './style';
 
-export const ContactInfo = (): ReactElement => {
+import { ContactInfoProps } from './type';
+
+export const ContactInfo = ({ basics }: ContactInfoProps): ReactElement => {
+  const { email, location, phone } = basics;
+  const { city, region, address } = location;
   return (
     <Grid container item spacing={1} direction='column'>
       <Grid container item direction='row' justify='space-evenly' spacing={3}>
@@ -16,7 +20,7 @@ export const ContactInfo = (): ReactElement => {
           Address:
         </ProfileListItem>
         <ProfileListItemValue item xs={12} md={9}>
-          Kharkiv, Ukraine
+          {city}, {region}, {address}
         </ProfileListItemValue>
       </Grid>
       <Grid container item direction='row' justify='center' spacing={3}>
@@ -25,7 +29,7 @@ export const ContactInfo = (): ReactElement => {
         </ProfileListItem>
         <ProfileListItemValue item xs={12} md={9}>
           <ProfileValueAItemValue href='mailto:cozzub@gmail.com'>
-            cozzub@gmail.com
+            {email}
           </ProfileValueAItemValue>
         </ProfileListItemValue>
       </Grid>
@@ -35,7 +39,7 @@ export const ContactInfo = (): ReactElement => {
         </ProfileListItem>
         <ProfileListItemValue item xs={12} md={9}>
           <ProfileValueAItemValue href='tel:+380996672171'>
-            +380996672171
+            +{phone}
           </ProfileValueAItemValue>
         </ProfileListItemValue>
       </Grid>
