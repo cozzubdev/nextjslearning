@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { useContactStyles } from 'hooks/useStyles';
 
 import { ContactForm } from './contact-form';
-import { MapContainer } from './map';
+import { Map } from './map';
 
 export const Contact = (): ReactElement => {
   const classes = useContactStyles();
@@ -15,7 +15,7 @@ export const Contact = (): ReactElement => {
       direction='column'
       container
       className={classes.container}
-      spacing={9}>
+      spacing={0}>
       <h2>Contact Me</h2>
       <Grid
         container
@@ -27,7 +27,7 @@ export const Contact = (): ReactElement => {
           <ContactForm />
         </Grid>
         <Grid item lg={6} xs={12} className={classes.itemContainer}>
-          <MapContainer />
+          <Map />
         </Grid>
       </Grid>
     </Grid>

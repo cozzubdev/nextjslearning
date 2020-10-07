@@ -23,7 +23,8 @@
       "pages": ["./pages"],
       "services": ["./services"],
       "models": ["./models"],
-      "store": ["./store"]
+      "store": ["./store"],
+      "public": ["./public"]
     }
   },
 

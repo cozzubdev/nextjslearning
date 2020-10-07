@@ -2,43 +2,42 @@ import { ReactElement } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 
-import { useContactInfoStyles } from 'hooks/useStyles';
+import {
+  ProfileListItem,
+  ProfileListItemValue,
+  ProfileValueAItemValue,
+} from './style';
 
 export const ContactInfo = (): ReactElement => {
-  const classes = useContactInfoStyles();
   return (
     <Grid container item spacing={1} direction='column'>
       <Grid container item direction='row' justify='space-evenly' spacing={3}>
-        <Grid className={classes.profileListItem} item xs={12} md={3}>
+        <ProfileListItem item xs={12} md={3}>
           Address:
-        </Grid>
-        <Grid className={classes.profileListItemValue} item xs={12} md={9}>
+        </ProfileListItem>
+        <ProfileListItemValue item xs={12} md={9}>
           Kharkiv, Ukraine
-        </Grid>
+        </ProfileListItemValue>
       </Grid>
       <Grid container item direction='row' justify='center' spacing={3}>
-        <Grid className={classes.profileListItem} item xs={12} md={3}>
+        <ProfileListItem item xs={12} md={3}>
           Email:
-        </Grid>
-        <Grid className={classes.profileListItemValue} item xs={12} md={9}>
-          <a
-            className={classes.profileValueAItemValue}
-            href='mailto:cozzub@gmail.com'>
+        </ProfileListItem>
+        <ProfileListItemValue item xs={12} md={9}>
+          <ProfileValueAItemValue href='mailto:cozzub@gmail.com'>
             cozzub@gmail.com
-          </a>
-        </Grid>
+          </ProfileValueAItemValue>
+        </ProfileListItemValue>
       </Grid>
       <Grid container item justify='center' direction='row' spacing={3}>
-        <Grid className={classes.profileListItem} item xs={12} md={3}>
+        <ProfileListItem item xs={12} md={3}>
           Phone:
-        </Grid>
-        <Grid className={classes.profileListItemValue} item xs={12} md={9}>
-          <a
-            className={classes.profileValueAItemValue}
-            href='tel:+380996672171'>
+        </ProfileListItem>
+        <ProfileListItemValue item xs={12} md={9}>
+          <ProfileValueAItemValue href='tel:+380996672171'>
             +380996672171
-          </a>
-        </Grid>
+          </ProfileValueAItemValue>
+        </ProfileListItemValue>
       </Grid>
     </Grid>
   );

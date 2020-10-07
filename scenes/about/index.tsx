@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import { Contact } from 'components/about/contact';
+import { Profile } from 'components/about/profile';
 
 import { getInfo } from 'services/linked-in';
 import { StoreContext } from 'store/type';
@@ -19,12 +20,14 @@ export const AboutPage = (): ReactElement => {
       <Grid
         xs={12}
         sm={12}
-        md={8}
+        md={12}
         item
         container
         direction='column'
+        wrap='nowrap'
         className={classes.padding0}
-        lg={8}>
+        lg={12}>
+        <Profile />
         <Contact />
       </Grid>
     </Grid>

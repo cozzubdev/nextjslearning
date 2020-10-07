@@ -6,7 +6,7 @@ import { useStyles } from 'hooks/useStyles';
 export const Header = (): ReactElement => {
   const classes = useStyles();
   return (
-    <Container className={classes.header} maxWidth='xl'>
+    <Container className={classes.header} maxWidth='xl' disableGutters>
       <Navigation />
     </Container>
   );

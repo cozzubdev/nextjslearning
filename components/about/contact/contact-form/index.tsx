@@ -4,10 +4,6 @@ import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { string, object } from 'yup';
 
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-
-import { useContactFormStyles } from 'hooks/useStyles';
 
 import { sendMail } from 'services/mail/send';
 
@@ -16,11 +12,10 @@ import { Message } from 'components/about/contact/contact-form/fields/message';
 import { Subject } from 'components/about/contact/contact-form/fields/subject';
 import { Email } from 'components/registration/fields/email';
 
+import { Container, SubmitButton, Heading } from './style';
 import { ContactFormFields, ContactFormValues } from './type';
 
 export const ContactForm = (): ReactElement => {
-  const classes = useContactFormStyles();
-
   const onSubmit = useCallback(
     async (
       values: ContactFormValues,
@@ -69,26 +64,25 @@ export const ContactForm = (): ReactElement => {
       initialValues={initialValues}>
       {({ values }: FormikProps<ContactFormValues>) => {
         return (
-          <Paper className={classes.container}>
+          <Container>
             <Form>
               <Grid container direction='column' spacing={2} justify='center'>
-                <h2 className={classes.heading}>Feel free to contact me</h2>
+                <Heading>Feel free to contact me</Heading>
                 <Name />
                 <Email />
                 <Subject />
                 <Message />
                 <div>
-                  <Button
+                  <SubmitButton
                     variant='contained'
                     color='primary'
-                    type='submit'
-                    className={classes.button}>
+                    type='submit'>
                     SEND
-                  </Button>
+                  </SubmitButton>
                 </div>
               </Grid>
             </Form>
-          </Paper>
+          </Container>
         );
       }}
     </Formik>

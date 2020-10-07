@@ -1,41 +1,40 @@
 import { ReactElement } from 'react';
 
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-
 import { ContactInfo } from 'components/about/contact/contact-info';
 
 import GoogleMapReact from 'google-map-react';
 
-import { useMapStyles } from 'hooks/useStyles';
+import {
+  Container,
+  GridContainer,
+  ContactContainer,
+  MapContainer,
+} from './style';
 
 const defaultCenter = { lat: 50.0851, lng: 36.3444 };
 const googleMapKey = {
   key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string,
 };
 
-export const MapContainer = (): ReactElement => {
-  const classes = useMapStyles();
-
+export const Map = (): ReactElement => {
   return (
-    <Paper className={classes.container}>
-      <Grid
+    <Container>
+      <GridContainer
         container
         direction='column'
         spacing={0}
-        alignItems='stretch'
-        className={classes.gridContainer}>
-        <Grid className={classes.contactContainer} item>
+        alignItems='stretch'>
+        <ContactContainer item>
           <ContactInfo />
-        </Grid>
-        <Grid className={classes.mapContainer} item xs={12}>
+        </ContactContainer>
+        <MapContainer item xs={12}>
           <GoogleMapReact
             bootstrapURLKeys={googleMapKey}
             defaultCenter={defaultCenter}
             defaultZoom={11}
           />
-        </Grid>
-      </Grid>
-    </Paper>
+        </MapContainer>
+      </GridContainer>
+    </Container>
   );
 };
