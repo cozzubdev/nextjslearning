@@ -99,7 +99,7 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
       },
       {
         name: 'Nextjslearning',
-        url: 'https://www.pfister.ch',
+        url: 'https://nextjslearning.now.sh/',
         image:
           'https://soshace-12d3e.kxcdn.com/wp-content/uploads/2019/10/Getting-Started-with-NextJS.jpg',
       },

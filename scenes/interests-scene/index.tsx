@@ -57,7 +57,7 @@ export const Interests: NextPage<InterestsProps> = ({
             align='center'
             color='textPrimary'
             gutterBottom>
-            Album layout
+            Interests
           </Typography>
           <Typography
             variant='h5'
