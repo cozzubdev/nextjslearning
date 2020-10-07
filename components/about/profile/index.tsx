@@ -21,7 +21,7 @@ import {
 export const Profile = (): ReactElement => {
   return (
     <Container>
-      <Grid item direction='column' spacing={0}>
+      <Grid item direction='column' spacing={0} container>
         <StyledProfile item container spacing={0}>
           <Grid item lg={5} xs={12}>
             <ProfilePhoto src='assets/avatar.jpg' alt='Durachok' />

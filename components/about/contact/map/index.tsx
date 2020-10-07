@@ -23,7 +23,8 @@ export const Map = (): ReactElement => {
         container
         direction='column'
         spacing={0}
-        alignItems='stretch'>
+        alignItems='stretch'
+        wrap='nowrap'>
         <ContactContainer item>
           <ContactInfo />
         </ContactContainer>
