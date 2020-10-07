@@ -65,7 +65,7 @@ export const Interests: NextPage<InterestsProps> = ({
             color='textSecondary'
             paragraph>
             This is my collection of favorite channels on twitch. Feel free to
-            browse through them and find, maybe, you will find what you like.
+            browse through them and, maybe, you will find what you like.
           </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify='center'>
