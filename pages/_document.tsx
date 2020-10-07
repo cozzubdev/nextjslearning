@@ -62,6 +62,11 @@ class NextJsLearningDocument extends Document<
             href='https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap'
             rel='stylesheet'
           />
+          <link
+            rel='stylesheet'
+            href='https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css'
+          />
+          <script src='https://code.iconify.design/1/1.0.7/iconify.min.js' />
         </Head>
         <body>
           <Main />

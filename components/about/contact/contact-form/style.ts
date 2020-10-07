@@ -10,6 +10,7 @@ export const Container = styled(Paper)`
 `;
 
 export const Heading = styled.h2`
+  margin-top: 15px;
   margin-bottom: 0;
 `;
 

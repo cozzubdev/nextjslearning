@@ -18,8 +18,10 @@ export const ProfileListItemValue = styled(Grid)`
   text-align: left;
   margin-top: -3px;
   padding: 0;
+  font-weight: 700;
 `;
 
 export const ProfileValueAItemValue = styled.a`
   color: inherit;
+  font-weight: 700;
 `;

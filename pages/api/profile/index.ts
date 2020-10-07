@@ -22,12 +22,14 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
     work: [
       {
         name: 'NearShorePartner.ch',
-        endDate: '',
+        endDate: 'present',
         highlights: [],
-        position: 'Junior Software Engineer',
+        position: 'Front-End Developer',
         startDate: '2020-01-31',
         summary: '',
         url: 'https://www.linkedin.com/company/18623506',
+        image:
+          'https://s.dou.ua/CACHE/images/img/static/companies/Logo__NearShorePartner.ch_mit_Claim__/a390d9d6c37ea5aa1863876041af1748.png',
       },
     ],
     volunteer: [],
@@ -36,32 +38,38 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
     publications: [],
     skills: [
       {
+        name: 'HTML5',
+        level: '',
+        keywords: [],
+        iconClass: 'devicon-html5-plain colored',
+      },
+      {
+        name: 'CSS3',
+        level: '',
+        keywords: [],
+        iconClass: 'devicon-css3-plain colored',
+      },
+      {
         name: 'JavaScript',
         level: '',
         keywords: [],
+        iconClass: 'devicon-javascript-plain colored',
+      },
+
+      {
+        name: 'TypeScript',
+        level: '',
+        keywords: [],
+        iconClass: 'devicon-typescript-plain colored',
       },
       {
         name: 'React.js',
         level: '',
         keywords: [],
+        iconClass: 'devicon-react-original colored',
       },
       {
         name: 'Next.js',
-        level: '',
-        keywords: [],
-      },
-      {
-        name: 'TypeScript',
-        level: '',
-        keywords: [],
-      },
-      {
-        name: 'HTML',
-        level: '',
-        keywords: [],
-      },
-      {
-        name: 'Cascading Style Sheets (CSS)',
         level: '',
         keywords: [],
       },

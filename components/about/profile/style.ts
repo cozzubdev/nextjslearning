@@ -5,14 +5,14 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 export const Container = styled(Paper)`
+  margin-bottom: 20px;
+  margin-top: 10px;
   @media ${Media.sm} {
     margin-top: 20px;
-    margin-bottom: 20px;
   }
 `;
 
 export const StyledProfile = styled(Grid)`
-  padding: 57px 50px 15px 50px;
   margin-bottom: 10px;
   @media ${Media.sm} {
     padding: 30px 20px 15px 20px;
@@ -30,7 +30,7 @@ export const ProfilePhoto = styled.img`
 `;
 
 export const ProfileInfo = styled(Grid)`
-  color: '#3d4451';
+  font-weight: 700;
   padding-bottom: 25px;
   margin-bottom: 25px;
   border-bottom: 1px solid #dedede;
@@ -51,13 +51,13 @@ export const ProfileTitle = styled.h1`
 `;
 
 export const ProfileTitleStart = styled.span`
-  font-weight: 200;
+  font-weight: 700;
 `;
 
 export const ProfilePosition = styled.h2`
   font-size: 18px;
 
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0;
   @media ${Media.md} {

@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 
 import { Contact } from 'components/about/contact';
 import { Profile } from 'components/about/profile';
+import { Skills } from 'components/about/skills';
+import { Experience } from 'components/about/experience';
 
 import { getInfo } from 'services/linked-in';
 
@@ -15,7 +17,7 @@ import { AboutProps } from './type';
 export const AboutPage = ({ profile }: AboutProps): ReactElement => {
   const classes = useAboutstyles();
 
-  const { basics } = profile;
+  const { basics, skills, work } = profile;
 
   return (
     <Grid container justify='center' className={classes.content}>
@@ -30,6 +32,8 @@ export const AboutPage = ({ profile }: AboutProps): ReactElement => {
         className={classes.padding0}
         lg={12}>
         <Profile basics={basics} />
+        <Experience experience={work} />
+        <Skills skills={skills} />
         <Contact basics={basics} />
       </Grid>
     </Grid>

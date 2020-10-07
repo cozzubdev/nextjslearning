@@ -10,6 +10,7 @@ export interface Skill {
   name: string;
   level: string;
   keywords: [];
+  iconClass: string;
 }
 export interface Work {
   name: string;
@@ -19,6 +20,7 @@ export interface Work {
   startDate: Date;
   summary: string;
   url: string;
+  image: string;
 }
 export interface Basics {
   name: string;
