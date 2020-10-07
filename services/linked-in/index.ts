@@ -6,10 +6,12 @@ export const getInfo = async (): Promise<Profile> => {
     headers: { 'Content-Type': 'application/json' },
   };
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_CURRENT_HOST}/api/profile`,
-    reqInit
-  );
+  const basicPath =
+    process.env.NODE_ENV === 'development'
+      ? process.env.NEXT_PUBLIC_CURRENT_HOST
+      : '';
+
+  const response = await fetch(`${basicPath}/api/profile`, reqInit);
 
   return response.json();
 };
