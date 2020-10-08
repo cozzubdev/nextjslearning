@@ -23,7 +23,7 @@
     "google-map-react": "^2.1.7",
     "isomorphic-unfetch": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
-    "next": "^9.5.3",
+    "next": "^9.5.4",
     "next-redux-wrapper": "^6.0.2",
     "nodemailer": "^6.4.13",
     "nookies": "^2.4.0",
