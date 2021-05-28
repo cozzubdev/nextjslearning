@@ -92,12 +92,6 @@ export default (req: NextApiRequest, res: NextApiResponse): void => {
     references: [],
     projects: [
       {
-        name: 'Pfister E-com',
-        url: 'https://www.pfister.ch',
-        image:
-          'https://www.bsi-software.com/fileadmin/daten/Kunden/Pfister/logo_pfister.png',
-      },
-      {
         name: 'Nextjslearning',
         url: 'https://nextjslearning.now.sh/',
         image:
